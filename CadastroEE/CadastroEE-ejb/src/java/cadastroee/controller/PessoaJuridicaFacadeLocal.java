@@ -6,7 +6,7 @@ package cadastroee.controller;
 
 import cadastroee.model.PessoaJuridica;
 import java.util.List;
-import javax.ejb.Local;
+import jakarta.ejb.Local;
 
 /**
  *

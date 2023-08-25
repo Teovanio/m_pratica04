@@ -33,7 +33,7 @@ import jakarta.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Produtos.findByNome", query = "SELECT p FROM Produtos p WHERE p.nome = :nome"),
     @NamedQuery(name = "Produtos.findByQuantidade", query = "SELECT p FROM Produtos p WHERE p.quantidade = :quantidade"),
     @NamedQuery(name = "Produtos.findByPrecoVenda", query = "SELECT p FROM Produtos p WHERE p.precoVenda = :precoVenda")})
-public class Produto implements Serializable {
+public class Produtos implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -53,14 +53,14 @@ public class Produto implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProduto")
     private Collection<Movimento> movimentoCollection;
 
-    public Produto() {
+    public Produtos() {
     }
 
-    public Produto(Integer idProdutos) {
+    public Produtos(Integer idProdutos) {
         this.idProdutos = idProdutos;
     }
 
-    public Produto(Integer idProdutos, String nome, int quantidade, Float precoVenda) {
+    public Produtos(Integer idProdutos, String nome, int quantidade, Float precoVenda) {
         this.idProdutos = idProdutos;
         this.nome = nome;
         this.quantidade = quantidade;
@@ -118,10 +118,10 @@ public class Produto implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Produto)) {
+        if (!(object instanceof Produtos)) {
             return false;
         }
-        Produto other = (Produto) object;
+        Produtos other = (Produtos) object;
         if ((this.idProdutos == null && other.idProdutos != null) || (this.idProdutos != null && !this.idProdutos.equals(other.idProdutos))) {
             return false;
         }

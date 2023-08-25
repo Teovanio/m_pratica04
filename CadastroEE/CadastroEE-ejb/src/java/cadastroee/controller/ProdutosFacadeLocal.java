@@ -4,9 +4,9 @@
  */
 package cadastroee.controller;
 
-import cadastroee.model.Produto;
+import cadastroee.model.Produtos;
 import java.util.List;
-import javax.ejb.Local;
+import jakarta.ejb.Local;
 
 /**
  *
@@ -15,17 +15,17 @@ import javax.ejb.Local;
 @Local
 public interface ProdutosFacadeLocal {
 
-    void create(Produto produtos);
+    void create(Produtos produtos);
 
-    void edit(Produto produtos);
+    void edit(Produtos produtos);
 
-    void remove(Produto produtos);
+    void remove(Produtos produtos);
 
-    Produto find(Object id);
+    Produtos find(Object id);
 
-    List<Produto> findAll();
+    List<Produtos> findAll();
 
-    List<Produto> findRange(int[] range);
+    List<Produtos> findRange(int[] range);
 
     int count();
     

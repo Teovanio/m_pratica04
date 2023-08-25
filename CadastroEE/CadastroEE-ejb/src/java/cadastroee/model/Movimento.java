@@ -53,7 +53,7 @@ public class Movimento implements Serializable {
     private Pessoa idPessoa;
     @JoinColumn(name = "idProduto", referencedColumnName = "idProdutos")
     @ManyToOne(optional = false)
-    private Produto idProduto;
+    private Produtos idProduto;
     @JoinColumn(name = "idUsuario", referencedColumnName = "id_Usuario")
     @ManyToOne(optional = false)
     private Usuarios idUsuario;
@@ -112,11 +112,11 @@ public class Movimento implements Serializable {
         this.idPessoa = idPessoa;
     }
 
-    public Produto getIdProduto() {
+    public Produtos getIdProduto() {
         return idProduto;
     }
 
-    public void setIdProduto(Produto idProduto) {
+    public void setIdProduto(Produtos idProduto) {
         this.idProduto = idProduto;
     }
 

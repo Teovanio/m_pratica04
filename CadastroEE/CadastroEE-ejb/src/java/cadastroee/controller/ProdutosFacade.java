@@ -4,17 +4,17 @@
  */
 package cadastroee.controller;
 
-import cadastroee.model.Produto;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import cadastroee.model.Produtos;
+import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 /**
  *
  * @author Usuario
  */
 @Stateless
-public class ProdutosFacade extends AbstractFacade<Produto> implements ProdutosFacadeLocal {
+public class ProdutosFacade extends AbstractFacade<Produtos> implements ProdutosFacadeLocal {
 
     @PersistenceContext(unitName = "CadastroEE-ejbPU")
     private EntityManager em;
@@ -25,7 +25,7 @@ public class ProdutosFacade extends AbstractFacade<Produto> implements ProdutosF
     }
 
     public ProdutosFacade() {
-        super(Produto.class);
+        super(Produtos.class);
     }
     
 }

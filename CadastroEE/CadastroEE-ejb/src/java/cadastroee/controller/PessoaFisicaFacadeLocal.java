@@ -6,7 +6,7 @@ package cadastroee.controller;
 
 import cadastroee.model.PessoaFisica;
 import java.util.List;
-import javax.ejb.Local;
+import jakarta.ejb.Local;
 
 /**
  *
