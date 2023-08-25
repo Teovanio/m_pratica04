@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://xmlns.jcp.org/xml/ns/" uri="www.oracle.com/webfolder/technetwork/jsc/xml/ns/index.html"/>
+    <system systemId="https://jakarta.ee/xml/ns/jakartaee" uri="jakarta.ee/xml/ns/jakartaee/index"/>
+    <system systemId="https://java.sun.com/xml/ns/javaee" uri="www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html"/>
+    <system systemId="https://www.w3.org/2001/XMLSchema-instance" uri="www.w3.org/2001/xmlschema-instance"/>
+</catalog>
