@@ -6,6 +6,7 @@ package cadastroee.servlets;
 
 
 import cadatroee.controler.ProdutosFacadeLocal;
+import cadatroee.model.Produtos;
 import jakarta.ejb.EJB;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +14,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
@@ -34,6 +36,7 @@ public class ServletProduto extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            List<Produtos> frutas = prod.findAll();
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -41,7 +44,13 @@ public class ServletProduto extends HttpServlet {
             out.println("<title>Servlet ServletProduto</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletProduto at " + prod.count() + "</h1>");
+            out.println("<h1>Existem " + prod.count() + " produtos no Servidor </h1>");
+            out.print("<ul>");
+            for (int i = 0; i < frutas.size(); i++) {
+                Produtos p = frutas.get(i);
+                out.print("<li>Produto: " + p.getNome() + ", Quantidade: " + p.getQuantidade() + ", Preço de Venda: " + p.getPrecoVenda() + "</li>");
+            }
+            out.print("</ul>");
             out.println("</body>");
             out.println("</html>");
         }
