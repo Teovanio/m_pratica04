@@ -4,30 +4,21 @@
  */
 package cadatroee.model;
 
-import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import java.io.Serializable;
+import java.util.Collection;
+
 
 /**
  *
  * @author Usuario
  */
 @Entity
-@Table(name = "Usuarios")
+@Table(catalog = "loja", schema = "dbo")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u"),
@@ -40,17 +31,17 @@ public class Usuarios implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_Usuario")
+    @Column(name = "id_Usuario", nullable = false)
     private Integer idUsuario;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(name = "login")
+    @Column(nullable = false, length = 50)
     private String login;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(name = "senha")
+    @Column(nullable = false, length = 50)
     private String senha;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario")
     private Collection<Movimento> movimentoCollection;
@@ -123,7 +114,7 @@ public class Usuarios implements Serializable {
 
     @Override
     public String toString() {
-        return "cadatroee.controller.Usuarios[ idUsuario=" + idUsuario + " ]";
+        return "cadatroee.model.Usuarios[ idUsuario=" + idUsuario + " ]";
     }
     
 }

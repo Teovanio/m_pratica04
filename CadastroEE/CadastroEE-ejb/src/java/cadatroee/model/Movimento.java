@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Usuario
  */
 @Entity
-@Table(name = "Movimento")
+@Table(catalog = "loja", schema = "dbo")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Movimento.findAll", query = "SELECT m FROM Movimento m"),
@@ -38,27 +38,27 @@ public class Movimento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idMovimento")
+    @Column(nullable = false)
     private Integer idMovimento;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "quantidade")
+    @Column(nullable = false)
     private int quantidade;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "tipo")
+    @Column(nullable = false)
     private Character tipo;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "valorUnitario")
+    @Column(nullable = false)
     private double valorUnitario;
-    @JoinColumn(name = "idPessoa", referencedColumnName = "id_Pessoa")
+    @JoinColumn(name = "idPessoa", referencedColumnName = "id_Pessoa", nullable = false)
     @ManyToOne(optional = false)
     private Pessoa idPessoa;
-    @JoinColumn(name = "idProduto", referencedColumnName = "idProdutos")
+    @JoinColumn(name = "idProduto", referencedColumnName = "idProdutos", nullable = false)
     @ManyToOne(optional = false)
     private Produtos idProduto;
-    @JoinColumn(name = "idUsuario", referencedColumnName = "id_Usuario")
+    @JoinColumn(name = "idUsuario", referencedColumnName = "id_Usuario", nullable = false)
     @ManyToOne(optional = false)
     private Usuarios idUsuario;
 
@@ -154,7 +154,7 @@ public class Movimento implements Serializable {
 
     @Override
     public String toString() {
-        return "cadatroee.controller.Movimento[ idMovimento=" + idMovimento + " ]";
+        return "cadatroee.model.Movimento[ idMovimento=" + idMovimento + " ]";
     }
     
 }

@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Usuario
  */
 @Entity
-@Table(name = "Pessoa")
+@Table(catalog = "loja", schema = "dbo")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Pessoa.findAll", query = "SELECT p FROM Pessoa p"),
@@ -44,38 +44,38 @@ public class Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_Pessoa")
+    @Column(name = "id_Pessoa", nullable = false)
     private Integer idPessoa;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "nome")
+    @Column(nullable = false, length = 255)
     private String nome;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "logradouro")
+    @Column(nullable = false, length = 255)
     private String logradouro;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "cidade")
+    @Column(nullable = false, length = 255)
     private String cidade;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
-    @Column(name = "estado")
+    @Column(nullable = false, length = 2)
     private String estado;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 11)
-    @Column(name = "telefone")
+    @Column(nullable = false, length = 11)
     private String telefone;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "email")
+    @Column(nullable = false, length = 255)
     private String email;
     @OneToMany(mappedBy = "idPessoa")
     private Collection<PessoaJuridica> pessoaJuridicaCollection;
@@ -206,7 +206,7 @@ public class Pessoa implements Serializable {
 
     @Override
     public String toString() {
-        return "cadatroee.controller.Pessoa[ idPessoa=" + idPessoa + " ]";
+        return "cadatroee.model.Pessoa[ idPessoa=" + idPessoa + " ]";
     }
     
 }

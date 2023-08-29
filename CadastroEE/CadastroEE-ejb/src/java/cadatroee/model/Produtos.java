@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Usuario
  */
 @Entity
-@Table(name = "Produtos")
+@Table(catalog = "loja", schema = "dbo")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Produtos.findAll", query = "SELECT p FROM Produtos p"),
@@ -41,20 +41,20 @@ public class Produtos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idProdutos")
+    @Column(nullable = false)
     private Integer idProdutos;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "nome")
+    @Column(nullable = false, length = 255)
     private String nome;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "quantidade")
+    @Column(nullable = false)
     private int quantidade;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "precoVenda")
+    @Column(nullable = false)
     private long precoVenda;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProduto")
     private Collection<Movimento> movimentoCollection;
@@ -136,7 +136,7 @@ public class Produtos implements Serializable {
 
     @Override
     public String toString() {
-        return "cadatroee.controller.Produtos[ idProdutos=" + idProdutos + " ]";
+        return "cadatroee.model.Produtos[ idProdutos=" + idProdutos + " ]";
     }
     
 }

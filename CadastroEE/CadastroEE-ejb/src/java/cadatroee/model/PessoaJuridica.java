@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Usuario
  */
 @Entity
-@Table(name = "Pessoa_Juridica")
+@Table(name = "Pessoa_Juridica", catalog = "loja", schema = "dbo")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "PessoaJuridica.findAll", query = "SELECT p FROM PessoaJuridica p"),
@@ -35,12 +35,12 @@ public class PessoaJuridica implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "idPessoa_Juridica")
+    @Column(name = "idPessoa_Juridica", nullable = false)
     private Integer idPessoaJuridica;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 14)
-    @Column(name = "cnpj")
+    @Column(nullable = false, length = 14)
     private String cnpj;
     @JoinColumn(name = "idPessoa", referencedColumnName = "id_Pessoa")
     @ManyToOne
@@ -104,7 +104,7 @@ public class PessoaJuridica implements Serializable {
 
     @Override
     public String toString() {
-        return "cadatroee.controller.PessoaJuridica[ idPessoaJuridica=" + idPessoaJuridica + " ]";
+        return "cadatroee.model.PessoaJuridica[ idPessoaJuridica=" + idPessoaJuridica + " ]";
     }
     
 }
