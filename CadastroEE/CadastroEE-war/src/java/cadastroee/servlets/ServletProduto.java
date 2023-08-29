@@ -5,6 +5,7 @@
 package cadastroee.servlets;
 
 
+import jakarta.ejb.EJB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -17,8 +18,8 @@ import jakarta.servlet.http.HttpServletResponse;
  * @author Usuario
  */
 public class ServletProduto extends HttpServlet {
-
-
+    //@EJB
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,8 +40,7 @@ public class ServletProduto extends HttpServlet {
             out.println("<title>Servlet ServletProduto</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletProduto at " + request.getContextPath() + "</h1>");
-            out.println("<h1>123</h1>");
+            out.println("<h1>Servlet ServletProduto at " + "12" + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
