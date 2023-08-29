@@ -37,7 +37,7 @@ import jakarta.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Produtos.findByPrecoVenda", query = "SELECT p FROM Produtos p WHERE p.precoVenda = :precoVenda")})
 public class Produtos implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -55,7 +55,7 @@ public class Produtos implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(nullable = false)
-    private long precoVenda;
+    private Float precoVenda;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProduto")
     private Collection<Movimento> movimentoCollection;
 
@@ -66,7 +66,7 @@ public class Produtos implements Serializable {
         this.idProdutos = idProdutos;
     }
 
-    public Produtos(Integer idProdutos, String nome, int quantidade, long precoVenda) {
+    public Produtos(Integer idProdutos, String nome, int quantidade, Float precoVenda) {
         this.idProdutos = idProdutos;
         this.nome = nome;
         this.quantidade = quantidade;
@@ -97,11 +97,11 @@ public class Produtos implements Serializable {
         this.quantidade = quantidade;
     }
 
-    public long getPrecoVenda() {
+    public Float getPrecoVenda() {
         return precoVenda;
     }
 
-    public void setPrecoVenda(long precoVenda) {
+    public void setPrecoVenda(Float precoVenda) {
         this.precoVenda = precoVenda;
     }
 

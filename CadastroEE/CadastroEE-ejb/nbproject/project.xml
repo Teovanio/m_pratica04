@@ -6,9 +6,6 @@
             <name>CadastroEE-ejb</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <included-library dirs="200">libs.jakartaee-api-8.0.classpath</included-library>
-            <included-library dirs="200">libs.jakartaee-api-10.0.classpath</included-library>
-            <included-library dirs="200">libs.jakartaee-api-9.0.classpath</included-library>
-            <included-library dirs="200">libs.EclipseLink-GlassFish-v3.classpath</included-library>
             <source-roots>
                 <root id="src.dir" name="Source Packages"/>
             </source-roots>
