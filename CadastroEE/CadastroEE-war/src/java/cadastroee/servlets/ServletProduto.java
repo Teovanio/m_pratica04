@@ -5,6 +5,7 @@
 package cadastroee.servlets;
 
 
+import cadatroee.controler.ProdutosFacadeLocal;
 import jakarta.ejb.EJB;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,8 +19,8 @@ import jakarta.servlet.http.HttpServletResponse;
  * @author Usuario
  */
 public class ServletProduto extends HttpServlet {
-    //@EJB
-    
+    @EJB
+    ProdutosFacadeLocal prod;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,7 +41,7 @@ public class ServletProduto extends HttpServlet {
             out.println("<title>Servlet ServletProduto</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletProduto at " + "12" + "</h1>");
+            out.println("<h1>Servlet ServletProduto at " + prod.count() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
