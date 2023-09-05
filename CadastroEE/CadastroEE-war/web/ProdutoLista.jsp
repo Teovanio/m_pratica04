@@ -16,7 +16,13 @@ String mensagem = request.getParameter("country");
                 }
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="cadatroee.model.Produtos"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+    List<Produtos> listaProdutos =  (List<Produtos>)request.getAttribute("listaProdutos");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,11 +30,40 @@ String mensagem = request.getParameter("country");
         <title>Produtos</title>
     </head>
     <body>
-        <h1>Listagem de Produtos!</h1>
+        <h1>Listagem de Produtos2!</h1>
         <a href="ServletProdutoFC?acao=formIncluir" > Novo Produto </a>
-        <%
-            
-
-            %>
-    </body>
+        listaProdutos
+        <table>
+            <thead>
+                <td>
+                    # |
+                </td>
+                <td>
+                    Nome |
+                </td>
+                <td>
+                    Quantidade |
+                </td>
+                <td>
+                    Preço de Venda |
+                </td>
+                <td>
+                    Opções
+                </td>
+            </thead>
+            <tbody>
+                <%
+                    for (Integer i = 0; i < listaProdutos.size(); i++) {
+                        Produtos p = listaProdutos.get(i);
+                        String Links = String.format("<a href='#'>Alterar</a> <a href='#'>Excluir</a>");
+                        String conteudo = String.format("<tr><td>%s |</td><td>%s |</td><td>%s |</td><td>%s |</td><td>%s</td></tr>",
+                        p.getIdProdutos(), p.getNome(), p.getQuantidade(), p.getPrecoVenda(), Links);
+                        
+                        out.println(conteudo);
+                    }
+                %>
+            </tbody>
+    </table>
+    
+</body>
 </html>
