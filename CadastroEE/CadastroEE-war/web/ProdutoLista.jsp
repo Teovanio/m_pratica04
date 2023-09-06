@@ -55,7 +55,7 @@ String mensagem = request.getParameter("country");
                 <%
                     for (Integer i = 0; i < listaProdutos.size(); i++) {
                         Produtos p = listaProdutos.get(i);
-                        String Links = String.format("<a href='#'>Alterar</a> <a href='#'>Excluir</a>");
+                        String Links = String.format("<a href='ServletProdutoFC?acao=alterar&id=%s'>Alterar</a> <a href='ServletProdutoFC?acao=excluir&id=%s'>Excluir</a>",p.getIdProdutos(), p.getIdProdutos());
                         String conteudo = String.format("<tr><td>%s |</td><td>%s |</td><td>%s |</td><td>%s |</td><td>%s</td></tr>",
                         p.getIdProdutos(), p.getNome(), p.getQuantidade(), p.getPrecoVenda(), Links);
                         

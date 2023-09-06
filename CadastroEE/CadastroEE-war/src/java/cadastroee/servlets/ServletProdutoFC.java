@@ -50,7 +50,7 @@ public class ServletProdutoFC extends HttpServlet {
                 destino = "ProdutoLista.jsp" ;
                 request.setAttribute("listaProdutos", listaProdutos);
                 break;
-            /*case "incluir":
+            case "incluir":
                 destino = "ProdutoLista.jsp";
                 Produtos novoProduto = new Produtos();
                 novoProduto.setNome(request.getParameter("nome"));
@@ -89,7 +89,7 @@ public class ServletProdutoFC extends HttpServlet {
                 request.setAttribute("Produtos", p);
                 break;
             default:
-                throw new AssertionError();*/
+                throw new AssertionError();
         }
         request.getRequestDispatcher(destino).forward(request, response);
     }
